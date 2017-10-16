@@ -1,4 +1,4 @@
-package remoteInterfaces;
+package nPeriodZins;
 
 import javax.ejb.Remote;
 

@@ -1,4 +1,4 @@
-package remoteInterfaces;
+package banknoten;
 
 import javax.ejb.Remote;
 

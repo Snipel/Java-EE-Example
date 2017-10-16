@@ -1,4 +1,4 @@
-package remoteInterfaces;
+package kapitalwert;
 
 import javax.ejb.Remote;
 

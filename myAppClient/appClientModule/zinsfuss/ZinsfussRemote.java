@@ -1,4 +1,4 @@
-package remoteInterfaces;
+package zinsfuss;
 
 import javax.ejb.Remote;
 
