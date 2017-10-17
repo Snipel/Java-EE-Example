@@ -1,7 +1,7 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.sql.DataSource;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
@@ -27,7 +27,28 @@ public class Main {
 	
 		Connection c = ds.getConnection();
 		
-		c.prepareStatement("SELECT * FROM flugbuchung");
+		// Ausgeben der Flugdaten
+		PreparedStatement s = c.prepareStatement("SELECT * FROM flug WHERE flugnr = ?");
+		s.setString(1, "LH222");
+		ResultSet rs = s.executeQuery();
+		rs.next();
+		for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+			System.out.println(rs.getMetaData().getColumnLabel(i) + ": " + rs.getString(i));
+		}
+		
+		// Ausgeben der gebuchten Flüge eines Passagiers
+		System.out.println("\nGEBUCHTE FLUEGE:\n---------------------");
+		PreparedStatement s2 = c.prepareStatement("SELECT * FROM buchung WHERE name = ?");
+		s2.setString(1, "Weber");
+		ResultSet rs2 = s2.executeQuery();
+		while (rs2.next()) {
+			System.out.println("\nBUCHUNG: ");
+			for (int i = 1; i <= rs2.getMetaData().getColumnCount(); i++) {
+				System.out.println(rs2.getMetaData().getColumnLabel(i) + ": " + rs2.getString(i));
+			}
+		}
+		
+		// Passagierliste eines FLugs
 		
 		
 		
