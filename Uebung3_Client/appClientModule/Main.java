@@ -43,8 +43,14 @@ public class Main {
 
 		/*
 		 * Nutzung der DataSource aus dem EJB
+		 * 
+		 * Lookup über Programmatisch eingestellte DataSource: 
+		 *    - DataSource ds = (DataSource) ctx.lookup("java:global/env/myFBgf");
+		 *    
+		 * Lookup über administrativ eingestellte DataSource: 
+		 *    - DataSource ds = (DataSource) ctx.lookup("JDBC/flugbuchung");
 		 */
-		DataSource ds = (DataSource) ctx.lookup("java:global/env/myFBgf");
+		DataSource ds = (DataSource) ctx.lookup("JDBC/flugbuchung");
 		Connection c = ds.getConnection();
 
 		// ----------------------------------------------------------------------------------
