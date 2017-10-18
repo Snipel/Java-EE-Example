@@ -38,11 +38,13 @@ public class FlugBean implements FlugBeanRemote {
     
 	@SuppressWarnings("unchecked")
     @Override
-    public void showFlug() {
+    public String showFlug() {
+		String s = "";
+		
     	/*
-		 * WICHTIG: Um Transaktion kümmern, wenn Application Managed gearbeitet wird. 
+		 * WICHTIG: NICHT (!) Um Transaktion kümmern, wenn Container Managed gearbeitet wird. 
+		 * --> sonst Exception!
 		 */
-		em.getTransaction().begin();
 		
 		/*
 		 * Named Query holen und absetzen
@@ -52,13 +54,10 @@ public class FlugBean implements FlugBeanRemote {
 		List<Flug> list= q.getResultList();
 		
 		for (Flug flug : list) {
-			System.out.println("FlugNr " + flug.getFlugnr() + " dauert " + flug.getFlugzeit() + " Std.");
+			s += "FlugNr " + flug.getFlugnr() + " dauert " + flug.getFlugzeit() + " Std. \n";
 		}
-		
-		/*
-		 * s.o.
-		 */
-		em.getTransaction().commit();
+
+		return s;
 	}
 
 }

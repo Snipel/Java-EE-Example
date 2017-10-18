@@ -14,13 +14,15 @@ public class Main {
 		props.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterprise.naming.SerialInitContextFactory");
 		props.put("org.omg.CORBA.ORBInitialHost", "localhost");
 		props.put("org.omg.CORBA.ORBInitialPort", "3700");
-		Context ctx = new InitialContext(props);
+		Context ctx = new InitialContext();
 		
 		// Nutzen der Flugbean
 		FlugBeanRemote flugbean = 
 				(FlugBeanRemote) ctx.lookup
 				("java:global/Uebung5_EJB/FlugBean!data.FlugBeanRemote");
-		flugbean.showFlug();
+		System.out.println(flugbean.showFlug());
+		
+		System.out.println("Ende Main");
 	}
 
 	/* (non-Java-doc)
