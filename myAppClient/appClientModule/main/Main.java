@@ -1,4 +1,5 @@
 package main;
+import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,6 +10,7 @@ import nPeriodZins.CalcNPeriodZinsEJBRemote;
 import zinsfuss.ZinsfussRemote;
 
 public class Main {
+	
 	public static void main(String[] args) {
 		Main main = new Main();
 	}

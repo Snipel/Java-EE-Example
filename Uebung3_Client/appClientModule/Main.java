@@ -4,12 +4,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class Main {
+	
 	public static void main(String[] args) throws NamingException, SQLException {
 		/*
 		 * Name aus dem Server-Log kriegen beim Deployment:
@@ -50,6 +53,7 @@ public class Main {
 		 * Lookup über administrativ eingestellte DataSource: 
 		 *    - DataSource ds = (DataSource) ctx.lookup("JDBC/flugbuchung");
 		 */
+		
 		DataSource ds = (DataSource) ctx.lookup("JDBC/flugbuchung");
 		Connection c = ds.getConnection();
 

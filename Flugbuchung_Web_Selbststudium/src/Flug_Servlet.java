@@ -1,0 +1,51 @@
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Flug_Servlet
+ */
+@WebServlet("/Flug_Servlet")
+public class Flug_Servlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Flug_Servlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter w = response.getWriter();
+		w.append("<form action=\"Flugliste_Servlet\" method=\"GET\">"
+				+ "<button type=\"submit\" value=\"flugliste\" name=\"Liste Buchungen\">Liste Buchungen</button></form>");
+		w.append("<form action=\"Flugform_Servlet\" method=\"GET\">"
+				+ "<button type=\"submit\" value=\"flugform\" name=\"Neuen Flug hinzufügen\">Neuen Flug hinzufügen</button></form>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

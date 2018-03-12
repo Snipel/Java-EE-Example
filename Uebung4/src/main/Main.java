@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import model.Flug;
@@ -50,7 +51,7 @@ public class Main {
 		 * Neues Flugobjekt bauen
 		 */
 		Flug flug = new Flug();
-		flug.setFlugnr("AB123");
+		flug.setFlugnr("AB312");
 		flug.setFlugzeit(new BigDecimal(13.45));
 		flug.setKm(new BigDecimal(2000));
 		flug.setStart("Hameln");
